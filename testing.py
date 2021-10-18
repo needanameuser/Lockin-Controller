@@ -13,11 +13,13 @@ def other():
     inst = rm.open_resource('COM4')
     inst.read_termination = '\r'
     inst.write_termination = '\r'
-    inst.timeout = 1000
+    inst.timeout = 2000
+    
     tick = time.time()
-    print(inst.query('FREQ 1001\n'))
+    print(inst.query('SLVL?\n'))
     tock = time.time()
     print(tock-tick)
+    inst.close()
     
     #print(deviceID)
 
