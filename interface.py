@@ -60,12 +60,12 @@ def test():
     function'''
     rm = pyvisa.ResourceManager()
     inst = rm.open_resource('COM4')
-    inst.read_termination = '\r\n'
-    inst.write_termination = '\r\n'
+    inst.read_termination = '\r'
+    inst.write_termination = '\r'
     inst.timeout = 100
     
     tick = time.time()
-    V = write('Frequency',inst,'3500')
+    V = ask('Output',inst,1)
     print(V)
     inst.close()
     
